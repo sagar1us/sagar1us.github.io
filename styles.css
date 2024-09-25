@@ -1,0 +1,157 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: black;
+    font-family: Arial, sans-serif;
+}
+
+.buttons-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row; /* Изменено на row по умолчанию */
+    align-items: center;
+    width: 90%;
+    max-width: 800px; /* Максимальная ширина контейнера */
+    flex-wrap: wrap; /* Позволяет кнопкам обтекать */
+}
+
+.username {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center; /* Выравнивание текста по центру */
+    width: 100%; /* Занимает всю ширину */
+}
+
+.buttons {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row; /* Горизонтальное расположение кнопок */
+    gap: 10px;
+    width: 100%;
+    justify-content: center; /* Центрирование кнопок */
+}
+
+.button {
+    flex: 1;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.hidden-balls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.ball {
+    width: 15px;
+    height: 15px;
+    background-color: #523a3a;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.7;
+    bottom: -20px;
+    animation: bubble 1.5s forwards;
+}
+
+@keyframes bubble {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+.ton-space {
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+}
+
+.ton-space:hover {
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.notification {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    z-index: 10;
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    20% { transform: translate(-5px, -5px); }
+    40% { transform: translate(5px, 5px); }
+    60% { transform: translate(-5px, 5px); }
+    80% { transform: translate(5px, -5px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+    .buttons {
+     
+        align-items: center; /* Центрирование кнопок */
+    }
+
+    .button, .ton-space {
+        width: 100%; /* Кнопки занимают 100% ширины */
+    }
+}
+
+@media (max-width: 600px) {
+    .username {
+    
+        font-size: 20px; /* Уменьшаем размер текста для маленьких экранов */
+    }
+    .creativity{
+        width: 95%;
+    }
+    .button, .ton-space {
+        font-size: 15px; /* Уменьшаем размер текста кнопок для маленьких экранов */
+    }
+}
